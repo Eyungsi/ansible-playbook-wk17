@@ -1,0 +1,21 @@
+---
+- hosts: db
+  become: yes
+  tasks:
+    - name: create folders # /tmp/log, /tmp/deploy, /tmp/dev
+      file:
+        state: directory
+        name: "{{ item }}"
+      loop:
+        - /tmp/log
+        - /tmp/deploy
+        - /tmp/dev
+
+    - name: install packages
+      package:
+        state: present
+        name: "{{ item }}"
+      loop:
+        - git
+        - wget
+        - unzip

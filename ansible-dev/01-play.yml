@@ -1,0 +1,27 @@
+---
+- hosts: ws
+  become: yes
+  #become_user:  root
+  tasks:
+    - name: check memory
+      shell: ghhjdhdj
+      ignore_errors: yes
+    - name: create file
+      file:
+        path: /tmp/playbooks
+        state: touch
+    - name: create a directory
+      file:
+        state: directory
+        path: /tmp/learning
+    - name: create group
+      group:
+        name: security
+        state: present
+          
+    - name: install apache
+      command: sudo yum install  httpd -y
+    - name: check uptime
+      shell: uptime
+    - name: command
+      shell: cat /etc/passwd |grep root # | 
